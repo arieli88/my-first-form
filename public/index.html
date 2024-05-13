@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form with Dynamic Fields</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="m-4">
+    <form id="dataForm" class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required class="form-control">
+
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required class="form-control">
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required class="form-control">
+
+        <label>Participants:</label>
+        <div id="participantsContainer" class="mb-3">
+            <input type="text" name="participants[]" required class="form-control">
+            <button type="button" onclick="addParticipant()" class="btn btn-primary mt-2">Add More</button>
+        </div>
+
+        <label for="vacation">Been on vacation before:</label>
+        <select id="vacation" name="vacation" class="form-control">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <button type="submit" class="btn btn-success mt-3">Submit</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>

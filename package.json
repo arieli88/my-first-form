@@ -1,0 +1,16 @@
+{
+    "name": "form-to-csv",
+    "version": "1.0.0",
+    "description": "A Node.js server to handle form submissions and append them to a CSV file.",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "cors": "^2.8.5",
+        "exceljs": "^4.4.0",
+        "express": "^4.17.1"
+    },
+    "author": "",
+    "license": "ISC"
+}
