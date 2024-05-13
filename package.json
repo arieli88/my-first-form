@@ -1,15 +1,19 @@
 {
     "name": "form-to-csv",
     "version": "1.0.0",
+    "type": "module",
     "description": "A Node.js server to handle form submissions and append them to a CSV file.",
     "main": "server.js",
     "scripts": {
-        "start": "node server.js"
+        "start": "node server.js",
+        "dev": "node --watch server.js",
+        "mongo": "docker run -p 27017:27017 --rm -it mongo"
     },
     "dependencies": {
         "cors": "^2.8.5",
         "exceljs": "^4.4.0",
-        "express": "^4.17.1"
+        "express": "^4.17.1",
+        "mongoose": "^8.3.4"
     },
     "author": "",
     "license": "ISC"

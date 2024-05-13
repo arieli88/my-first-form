@@ -41,7 +41,7 @@ document.getElementById('dataForm').addEventListener('submit', function(event) {
     event.preventDefault();
     const formData = new FormData(this);
     const data = {
-        name: formData.get('name'),
+        name: formData.get('firstname'),
         phone: formData.get('phone'),
         address: formData.get('address'),
         participants: formData.getAll('participants[]'),
