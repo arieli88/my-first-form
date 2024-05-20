@@ -1,3 +1,4 @@
+// @ts-check
 import express from 'express';
 // const fs = require('fs');
 import { appendFile } from 'fs/promises'

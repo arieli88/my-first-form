@@ -1,0 +1,53 @@
+{
+    "beenThisYear": true,
+    "periodSelected": "first",
+    "firstName": "John",
+    "lastName": "Doe",
+    "cellPhone": "1234567890",
+    "homePhone": "0987654321",
+    "address": {
+        "city": "Test City",
+        "neighbored": "Test Neighbored",
+        "street": "Test Street",
+        "houseNumber": "123"
+    },
+    "participantsNumber": {
+        "adults": 2,
+        "children": 2
+    },
+    "participants": [
+        {
+            "firstName": "Jane",
+            "lastName": "Doe",
+            "age": 30,
+            "relationship": "Spouse",
+            "phone": "1234567890",
+            "comment": "Test comment"
+        },
+        {
+            "firstName": "Kid",
+            "lastName": "Doe",
+            "age": 10,
+            "relationship": "Child",
+            "phone": "1234567890",
+            "comment": "Test comment"
+        }
+    ],
+    "forceKind": "Test Force",
+    "deceased": {
+        "firstName": "Deceased",
+        "lastName": "Doe"
+    },
+    "limitMedicals": "Test limit",
+    "specialRequest": "Test request",
+    "shuttle": "Tel-Aviv",
+    "creditCard": {
+        "ownerName": "John Doe",
+        "ownerId": "123456789",
+        "cardType": "Visa",
+        "cardNumber": "4111111111111111",
+        "cvv": "123",
+        "expired": "12/2023"
+    },
+    "paymentAmountApproval": "770"
+}
