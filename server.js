@@ -18,20 +18,19 @@ const { log, warn } = console
 
 app.post('/saveData', async (req, res) => {
     log('POST request received', req.body);
-    const { name, phone, address, participants, vacation } = req.body;
-    // const data = `${name},${phone},${address},${participants},${vacation}\n`
-    for (const field of [name, phone, address, participants, vacation]) {
-        if (!field) {
-            warn({
-                errorType: 'missingField',
-                name, phone, address, participants, vacation
-            })
-            return res.status(400).send('All fields are required');
-        }
-    }
+    // const { name, phone, address, participants, vacation } = req.body;
+    // for (const field of [name, phone, address, participants, vacation]) {
+    //     if (!field) {
+    //         warn({
+    //             errorType: 'missingField',
+    //             name, phone, address, participants, vacation
+    //         })
+    //         return res.status(400).send('All fields are required');
+    //     }
+    // }
 
 
-    await registrationModel.create({ name, phone, address, participants, vacation })
+    await registrationModel.create(req.body)
     .then(log)
     
     .catch(err => {})

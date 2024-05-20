@@ -6,6 +6,10 @@ const addressSchema = new Schema({
     street: { type: String , required: true },
     houseNumber: { type: String , required: true },
     
+}, {
+    _id: false,
+    versionKey: false
+    
 })
 
 const participantsSchema = new Schema({
