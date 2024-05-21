@@ -13,7 +13,7 @@
     "include": [
         "./**/*.ts",
         "./**/*.js"
-    ],
+, "server.js"    ],
     "exclude": [
         "node_modules"
     ]

@@ -16,15 +16,16 @@ const { log, warn } = console
 
 
 app.post('/saveData', async (req, res) => {
-    log('POST request received', req.body);
+    // log('POST request received', req.body);
 
 
     await registrationModel.create(req.body, {})
     .then(log)
-    .then(() => res.send('Data saved successfully'))
+    .then(() => res.status(202).end('Data saved successfully'))
     
-    .catch(err => {})
-});
+    .catch(warn)
+    res.status(201).end()
+})
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
