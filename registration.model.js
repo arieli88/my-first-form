@@ -1,3 +1,4 @@
+// @ts-check
 import { Schema, model, connect } from 'mongoose';
 
 const addressSchema = new Schema({

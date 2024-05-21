@@ -19,9 +19,9 @@ app.post('/saveData', async (req, res) => {
     // log('POST request received', req.body);
 
 
-    await registrationModel.create(req.body, {})
+    await registrationModel.create([req.body], {lean:true,a:9})
     .then(log)
-    .then(() => res.status(202).end('Data saved successfully'))
+    .then(() => res.status(201).end('Data saved successfully'))
     
     .catch(warn)
     res.status(201).end()

@@ -18,5 +18,8 @@
         "mongoose": "^8.3.4"
     },
     "author": "",
-    "license": "ISC"
+    "license": "ISC",
+    "devDependencies": {
+        "@types/mongodb": "^4.0.7"
+    }
 }
