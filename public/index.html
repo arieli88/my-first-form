@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +9,15 @@
         #dataForm {
             padding: 100px 250px;
         }
+		label {
+			display: flex;
+		}
+		#radiopt {
+			display: inline-block; /* Sets the display to inline-block */
+		}
+		h5{
+			display: flex;
+		}
     </style>
 </head>
 <body class="m-4">
@@ -17,19 +26,19 @@
         <!-- Conference Section -->
         <div class="row">
             <div class="col">
-                <h5>Have you been at the conference in 2024?</h5>
+                <h5>האם השתתפת בנופש חילי בשנת 2024:</h5>
                 <input type="radio" id="conference_yes" name="conference" value="yes" >
-                <label for="conference_yes">Yes</label>
+                <label id="radiopt" for="conference_yes">כן</label>
                 <input type="radio" id="conference_no" name="conference" value="no">
-                <label for="conference_no">No</label>
+                <label id="radiopt" for="conference_no">לא</label>
             </div>
 		</div>
 		<div class="row">
             <div class="col">
-                <label for="period">Which period do you want to attend?</label>
+                <label for="period">אנו מעוניינים להשתתף במחזור:</label>
                 <select id="period" name="period" class="form-control">
-                    <option value="14/05/2024">14/05/2024</option>
-                    <option value="21/05/2024">21/05/2024</option>
+                    <option value="14/05/2024">ראשון - יב אלול פרשת כי תצא</option>
+                    <option value="21/05/2024">שני - יט אלול פרשת כי תבוא</option>
                 </select>
             </div>
         </div>
@@ -37,11 +46,11 @@
         <!-- Name Section -->
         <div class="row">
             <div class="col">
-                <label for="firstname">First Name:</label>
+                <label for="firstname">שם פרטי:</label>
                 <input type="text" id="firstname" name="firstname"  class="form-control">
             </div>
             <div class="col">
-                <label for="lastname">Last Name:</label>
+                <label for="lastname">שם משפחה:</label>
                 <input type="text" id="lastname" name="lastname"  class="form-control">
             </div>
         </div>
@@ -49,15 +58,15 @@
         <!-- Adults, Children, Total People Section -->
         <div class="row">
             <div class="col">
-                <label for="adults">Adults:</label>
+                <label for="adults">מבוגרים:</label>
                 <input type="number" id="adults" name="adults"  class="form-control" oninput="calculateTotalPeople()">
             </div>
             <div class="col">
-                <label for="children">Children:</label>
+                <label for="children">ילדים:</label>
                 <input type="number" id="children" name="children"  class="form-control" oninput="calculateTotalPeople()">
             </div>
             <div class="col">
-                <label>Total People:</label>
+                <label>סך המשתתפים:</label>
                 <input type="text" id="totalPeople" name="totalPeople" disabled class="form-control">
             </div>
         </div>
@@ -65,19 +74,19 @@
         <!-- Address Entry Section -->
         <div class="row">
             <div class="col">
-                <label for="city">City:</label>
+                <label for="city">עיר:</label>
                 <input type="text" id="city" name="city"  class="form-control">
             </div>
             <div class="col">
-                <label for="neighborhood">Neighborhood:</label>
+                <label for="neighborhood">שכונה:</label>
                 <input type="text" id="neighborhood" name="neighborhood"  class="form-control">
             </div>
             <div class="col">
-                <label for="street">Street:</label>
+                <label for="street">רחוב:</label>
                 <input type="text" id="street" name="street"  class="form-control">
             </div>
             <div class="col">
-                <label for="houseNumber">House Number:</label>
+                <label for="houseNumber">מספר בית:</label>
                 <input type="number" id="houseNumber" name="houseNumber"  class="form-control">
             </div>
         </div>
@@ -85,7 +94,7 @@
         <!-- Telephone Entry Section -->
         <div class="row" style="align-items: flex-end;">
             <div class="col">
-                <label for="homePhoneArea">Telephone Home:</label>
+                <label for="homePhoneArea">טלפון בית:</label>
                 <select id="homePhoneArea" name="homePhoneArea" class="form-control">
                     <option value="077">077</option>
                     <option value="03">03</option>
@@ -95,14 +104,14 @@
                 </select>
             </div>
             <div class="col">
-                <input type="number" id="homePhoneNumber" name="homePhoneNumber"  class="form-control" placeholder="Phone Number">
+                <input type="number" id="homePhoneNumber" name="homePhoneNumber"  class="form-control" placeholder="מספר טלפון">
             </div>
         </div>
 
         <!-- Cellphone Entry Section -->
         <div class="row" style="align-items: flex-end;">
             <div class="col">
-                <label for="cellPhoneArea">Cellphone:</label>
+                <label for="cellPhoneArea">פלאפון נייד:</label>
                 <select id="cellPhoneArea" name="cellPhoneArea" class="form-control">
                     <option value="052">052</option>
                     <option value="050">050</option>
@@ -110,38 +119,60 @@
                 </select>
             </div>
             <div class="col">
-                <input type="number" id="cellPhoneNumber" name="cellPhoneNumber"  class="form-control" placeholder="Phone Number">
+                <input type="number" id="cellPhoneNumber" name="cellPhoneNumber"  class="form-control" placeholder="מספר פלאפון">
             </div>
         </div>
 
         <!-- Participants Dynamic Addition -->
-        <h5>Participants:</h5>
+        <h5>משתתפים:</h5>
         <div id="participantsContainer" class="mb-3"></div>
-        <button type="button" onclick="addParticipant()" class="btn btn-primary mt-2">Add More Participants</button>
+        <button type="button" onclick="addParticipant()" class="btn btn-primary mt-2">הוסף עוד משתתפים</button>
         
         <!-- Food Preference Section -->
-        <label for="food">Food Preference:</label>
-        <select id="food" name="food" class="form-control">
-            <option value="raba">Raba</option>
-            <option value="air">Air</option>
-            <option value="fire">Fire</option
-            <option value="sea">Sea</option>
+        <label for="forcekind">אנו שייכים לחיל:</label>
+        <select id="forcekind" name="forcekind" class="form-control">
+            <option value="rabanoot">רבנות צבאית</option>
+            <option value="shiryon">שיריון</option>
+            <option value="tutachanim">תותחנים</option>
+            <option value="handasa">הנדסה</option>
+            <option value="chayil-havir">חיל האוויר</option>
+            <option value="chayil-hayam">חיל הים</option>
+            <option value="mashatz">משא''ן</option>
+            <option value="refuah">רפואה</option>
+            <option value="modiin">מודיעין</option>
+            <option value="mishtara-tzvait">משטרה צבאית</option>
+            <option value="logistica">לוגיסטיקה</option>
+            <option value="chimush">חימוש</option>
+            <option value="pikud-haoref">פיקוד העורף</option>
+            <option value="chinuch">חינוך</option>
+            <option value="nahal">נח''ל</option>
+            <option value="kafir">כפיר</option>
+            <option value="golani">גולני</option>
+            <option value="givati">גבעתי</option>
+            <option value="tzanhanim">צנחנים</option>
+            <option value="chayar">חי''ר</option>
         </select>
-        <!-- 'Halal Pratim' Field -->
-        <h5>Halal Pratim:</h5>
         <div class="row">
             <div class="col">
-                <label for="halalPratimFirstName">First Name:</label>
+                <label for="anotherforcekind">חיל אחר:</label>
+                <input type="text" id="anotherforcekind" name="anotherforcekind" class="form-control">
+            </div>
+        </div>
+        <!-- 'Halal Pratim' Field -->
+        <h5>פרטי החלל:</h5>
+        <div class="row">
+            <div class="col">
+                <label for="halalPratimFirstName">שם פרטי:</label>
                 <input type="text" id="halalPratimFirstName" name="halalPratimFirstName" class="form-control">
             </div>
             <div class="col">
-                <label for="halalPratimLastName">Last Name:</label>
+                <label for="halalPratimLastName">שם משפחה:</label>
                 <input type="text" id="halalPratimLastName" name="halalPratimLastName" class="form-control">
             </div>
         </div>
 
         <!-- 'Medical Issue' Field -->
-        <h5>Medical Issue:</h5>
+        <h5>מגבלות רפואיות (נא לציין במידה ונעזרים בציוד רפואי קבוע או כל בעיה נוספת):</h5>
         <div class="row">
             <div class="col">
                 <textarea id="medicalIssue" name="medicalIssue" class="form-control"></textarea>
@@ -149,7 +180,7 @@
         </div>
 
         <!-- 'Special Unique' Field -->
-        <h5>Special Unique:</h5>
+        <h5>בקשות מיוחדות (כגון העדפה לישיבה באותו שולחן בחדר אוכל או שכנים לחדר - נשתדל להתחשב בבקשותיכם):</h5>
         <div class="row">
             <div class="col">
                 <textarea id="specialUnique" name="specialUnique" class="form-control"></textarea>
@@ -157,59 +188,56 @@
         </div>
 
         <!-- 'Arrived in Any Case' Radio Button -->
-        <h5>Arrived in Any Case:</h5>
+        <h5>פרטי הסעה - במקרה הצורך:</h5>
         <div class="row">
             <div class="col">
                 <input type="radio" id="arrivedA" name="arrivedInAnyCase" value="A">
-                <label for="arrivedA">Option A</label><br>
+                <label id="radiopt" for="arrivedA">צריכים הסעה - תל אביב</label><br>
                 <input type="radio" id="arrivedB" name="arrivedInAnyCase" value="B">
-                <label for="arrivedB">Option B</label><br>
+                <label id="radiopt" for="arrivedB">צריכים הסעה - ירושלים</label><br>
                 <input type="radio" id="arrivedC" name="arrivedInAnyCase" value="C">
-                <label for="arrivedC">Option C</label><br>
+                <label id="radiopt" for="arrivedC">צריכים הסעה - חיפה</label><br>
                 <input type="radio" id="arrivedD" name="arrivedInAnyCase" value="D">
-                <label for="arrivedD">Option D</label><br>
+                <label id="radiopt" for="arrivedD">צריכים הסעה - באר שבע</label><br>
+				<input type="radio" id="arrivedD" name="arrivedInAnyCase" value="E">
+                <label id="radiopt" for="arrivedD">לא צריכים הסעה</label><br>
             </div>
         </div>
 
         <!-- 'Credit Card' Fields -->
-        <h5>Credit Card Information:</h5>
+        <h5>פרטי כרטיס אשראי - (תנאי חובה להרשמה):</h5>
         <div class="row">
             <div class="col">
-                <label for="creditCardOwnerName">Owner Name:</label>
+                <label for="creditCardOwnerName">שם בעל הכרטיס:</label>
                 <input type="text" id="creditCardOwnerName" name="creditCardOwnerName" class="form-control">
             </div>
             <div class="col">
-                <label for="creditCardTaz">Taz:</label>
+                <label for="creditCardTaz">מס ת.ז. בעל הכרטיס:</label>
                 <input type="text" id="creditCardTaz" name="creditCardTaz" class="form-control">
             </div>
             <div class="col">
-                <label for="creditCardType">Card Type:</label>
+                <label for="creditCardType">סוג הכרטיס:</label>
                 <input type="text" id="creditCardType" name="creditCardType" class="form-control">
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="creditCardNumber">Card Number:</label>
+                <label for="creditCardNumber">מס כרטיס אשראי:</label>
                 <input type="text" id="creditCardNumber" name="creditCardNumber" class="form-control">
             </div>
             <div class="col">
-                <label for="creditCardCVV">CVV:</label>
+                <label for="creditCardCVV" alt="CVV">שלוש ספרות אחרונות בגב כרטיס אשראי:</label>
                 <input type="text" id="creditCardCVV" name="creditCardCVV" class="form-control">
             </div>
             <div class="col">
-                <label for="creditCardExpiryDate">Expiry Date:</label>
+                <label for="creditCardExpiryDate">תוקף:</label>
                 <input type="text" id="creditCardExpiryDate" name="creditCardExpiryDate" class="form-control">
             </div>
         </div>
-        <div class="row">
-            <div class="col">
-                <label for="creditCardCreditLimit">Credit Limit:</label>
-                <input type="text" id="creditCardCreditLimit" name="creditCardCreditLimit" class="form-control">
-            </div>
-        </div>
+
 
         <!-- Text for vacation money -->
-        <h5>I'm sure I want to give my money for the vacation:</h5>
+        <h5>הנני מאשר לחייב את כרטיס האשראי שלי עבור השתתפות בנופש בסך:</h5>
         <div class="row">
             <div class="col">
                 <input type="number" id="vacationMoney" name="vacationMoney" class="form-control">
@@ -226,7 +254,7 @@
 
 		
         <!-- Submit Button -->
-        <button type="submit" class="btn btn-success mt-3">Submit</button>
+        <button type="submit" class="btn btn-success mt-3">שליחה</button>
     </form>
     <script src="script.js"></script>
 </body>

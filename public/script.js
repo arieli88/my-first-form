@@ -1,3 +1,5 @@
+
+
 const container = document.getElementById('participantsContainer');
 
 function addParticipant() {
@@ -5,27 +7,35 @@ function addParticipant() {
     div.className = 'row';
     div.innerHTML = `
         <div class="col">
-            <input type="text" name="participantName[]" placeholder="Name" required class="form-control mt-2">
+            <input type="text" name="participantName[]" placeholder="שם פרטי" required class="form-control mt-2">
         </div>
         <div class="col">
-            <input type="text" name="participantLastName[]" placeholder="Last Name" required class="form-control mt-2">
+            <input type="text" name="participantLastName[]" placeholder="שם משפחה" required class="form-control mt-2">
         </div>
         <div class="col">
             <select name="participantRelation[]" class="form-control mt-2">
-                <option value="dad">Dad</option>
-                <option value="mom">Mom</option
-                <option value="cousin">Cousin</option>
-                <option value="son">Son</option>
+            <option value="kirva">קרבה לחלל</option>
+            <option value="aba">אבא</option>
+            <option value="ima">אמא</option>
+            <option value="ach">אח</option>
+            <option value="achot">אחות</option>
+            <option value="ben">בן</option>
+            <option value="bat">בת</option>
+            <option value="dod">דוד</option>
+            <option value="doda">דודה</option>
+            <option value="saba">סבא</option>
+            <option value="savta">סבתא</option>
+            
             </select>
         </div>
         <div class="col">
-            <input type="number" name="participantAge[]" placeholder="Age" required class="form-control mt-2">
+            <input type="number" name="participantAge[]" placeholder="גיל" required class="form-control mt-2">
         </div>
         <div class="col">
-            <input type="text" name="participantCellphone[]" placeholder="Cellphone" required class="form-control mt-2">
+            <input type="text" name="participantCellphone[]" placeholder="פלאפון" required class="form-control mt-2">
         </div>
         <div class="col">
-            <input type="text" name="participantNotes[]" placeholder="Notes" class="form-control mt-2">
+            <input type="text" name="participantNotes[]" placeholder="הערות" class="form-control mt-2">
         </div>
     `;
     container.appendChild(div);

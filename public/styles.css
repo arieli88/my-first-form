@@ -16,3 +16,21 @@ input, select, button {
 	    padding-right: 5px;
     padding-left: 5px;
 }
+
+.input-group {
+    display: flex;
+    flex-direction: column; /* Stacks children vertically */
+    align-items: flex-start; /* Aligns children to the right in RTL */
+    margin-bottom: 15px; /* Adds space between groups */
+}
+
+.input-group label {
+    order: 1; /* Ensures label is above input */
+}
+
+.input-group input {
+    order: 2; /* Ensures input is below label */
+    width: 100%; /* Makes the input stretch to fill its container */
+}
+
+
